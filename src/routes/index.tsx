@@ -84,9 +84,9 @@ function Intro() {
 function Services() {
   const { t } = useI18n();
   const items = [
-    { icon: Zap, title: t.home.svc1Title, desc: t.home.svc1Desc, img: elektroImg, to: "/leistungen" },
-    { icon: Sun, title: t.home.svc2Title, desc: t.home.svc2Desc, img: energieImg, to: "/leistungen" },
-    { icon: Hammer, title: t.home.svc3Title, desc: t.home.svc3Desc, img: sanierungImg, to: "/leistungen" },
+    { icon: Zap, title: t.home.svc1Title, desc: t.home.svc1Desc, img: elektroImg, hash: "elektro" },
+    { icon: Sun, title: t.home.svc2Title, desc: t.home.svc2Desc, img: energieImg, hash: "energie" },
+    { icon: Hammer, title: t.home.svc3Title, desc: t.home.svc3Desc, img: sanierungImg, hash: "sanierung" },
   ] as const;
   return (
     <section className="container-page py-24 md:py-36">
@@ -97,7 +97,7 @@ function Services() {
       <div className="grid md:grid-cols-3 gap-4">
         {items.map((it, i) => (
           <Reveal key={it.title} delay={i * 0.08}>
-            <Link to={it.to} className="group block bg-card border border-border hover:border-accent transition-colors h-full">
+            <Link to="/leistungen" hash={it.hash} className="group block bg-card border border-border hover:border-accent transition-colors h-full">
               <div className="aspect-[4/3] overflow-hidden">
                 <img src={it.img} alt={it.title} loading="lazy" className="h-full w-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-700" />
               </div>
