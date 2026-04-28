@@ -4,7 +4,6 @@ import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 import { useI18n } from "@/i18n/I18nProvider";
 import { cn } from "@/lib/utils";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
-import logoUrl from "@/assets/logo.png";
 
 export function Header() {
   const { t, locale, setLocale } = useI18n();
@@ -90,12 +89,9 @@ export function Header() {
         )}
       >
         <div className="container-page flex h-16 md:h-20 items-center justify-between gap-6">
-          <Link to="/" className="flex items-center group" aria-label="Buddenhagen & Söhne">
-            <img
-              src={logoUrl}
-              alt="Buddenhagen & Söhne — established 1926"
-              className="h-9 md:h-11 w-auto"
-            />
+          <Link to="/" className="flex items-center gap-2.5 group" aria-label="Buddenhagen">
+            <div className="h-8 w-8 bg-foreground text-background grid place-items-center font-display font-bold text-sm">B</div>
+            <span className="font-display font-semibold tracking-tight text-lg">Buddenhagen</span>
           </Link>
 
           <nav ref={menuRef} className="hidden lg:flex items-center gap-6 text-sm">
