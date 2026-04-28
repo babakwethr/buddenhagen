@@ -105,8 +105,13 @@ export function Header() {
                   <Link
                     key={item.to}
                     to={item.to}
-                    className="text-foreground/75 hover:text-foreground transition-colors"
-                    activeProps={{ className: "text-foreground font-medium" }}
+                    className={cn(
+                      "transition-colors",
+                      scrolled
+                        ? "text-foreground/75 hover:text-foreground"
+                        : "text-neutral-600 hover:text-foreground",
+                    )}
+                    activeProps={{ className: "font-medium" }}
                     activeOptions={{ exact: item.to === "/" }}
                   >
                     {item.label}
@@ -120,7 +125,10 @@ export function Header() {
                     type="button"
                     onClick={() => setOpenMenu(isOpen ? null : item.id)}
                     className={cn(
-                      "inline-flex items-center gap-1 text-foreground/75 hover:text-foreground transition-colors",
+                      "inline-flex items-center gap-1 transition-colors",
+                      scrolled
+                        ? "text-foreground/75 hover:text-foreground"
+                        : "text-neutral-600 hover:text-foreground",
                       isOpen && "text-foreground",
                     )}
                     aria-expanded={isOpen}
@@ -154,13 +162,23 @@ export function Header() {
             <div className="hidden sm:flex items-center text-xs font-display tracking-wider">
               <button
                 onClick={() => setLocale("de")}
-                className={cn("px-2 py-1 transition", locale === "de" ? "text-foreground font-semibold" : "text-muted-foreground hover:text-foreground")}
+                className={cn(
+                  "px-2 py-1 transition",
+                  locale === "de"
+                    ? scrolled ? "text-foreground font-semibold" : "text-neutral-700 font-semibold"
+                    : scrolled ? "text-muted-foreground hover:text-foreground" : "text-neutral-500 hover:text-foreground",
+                )}
                 aria-label="Deutsch"
               >DE</button>
               <span className="text-border">/</span>
               <button
                 onClick={() => setLocale("en")}
-                className={cn("px-2 py-1 transition", locale === "en" ? "text-foreground font-semibold" : "text-muted-foreground hover:text-foreground")}
+                className={cn(
+                  "px-2 py-1 transition",
+                  locale === "en"
+                    ? scrolled ? "text-foreground font-semibold" : "text-neutral-700 font-semibold"
+                    : scrolled ? "text-muted-foreground hover:text-foreground" : "text-neutral-500 hover:text-foreground",
+                )}
                 aria-label="English"
               >EN</button>
             </div>
