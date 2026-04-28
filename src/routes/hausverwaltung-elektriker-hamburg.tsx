@@ -70,6 +70,8 @@ function HVPage() {
       <section className="container-page py-20 text-center border-t border-border">
         <CTAButton to="/leistungen" variant="dark">{t.nav.leistungen}</CTAButton>
       </section>
+
+      <WhatsAppButton variant="floating" />
     </SiteLayout>
   );
 }
