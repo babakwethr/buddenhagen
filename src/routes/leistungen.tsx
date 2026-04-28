@@ -29,8 +29,8 @@ function LeistungenPage() {
     <SiteLayout>
       <PageHero eyebrow={t.nav.leistungen} title={t.leistungen.title} intro={t.leistungen.intro} />
 
-      <Block num="01" title={t.leistungen.block1} items={t.leistungen.block1Items} img={elektroImg} />
-      <Block num="02" title={t.leistungen.block2} items={t.leistungen.block2Items} img={energieImg} reverse>
+      <Block id="elektro" num="01" title={t.leistungen.block1} items={t.leistungen.block1Items} img={elektroImg} />
+      <Block id="energie" num="02" title={t.leistungen.block2} items={t.leistungen.block2Items} img={energieImg} reverse>
         <div className="mt-10 border border-border bg-card p-7">
           <div className="grid md:grid-cols-3 gap-6 items-center">
             <img src={windImg} alt="Windkraft" loading="lazy" className="aspect-square object-cover w-full" />
@@ -44,7 +44,7 @@ function LeistungenPage() {
           </div>
         </div>
       </Block>
-      <Block num="03" title={t.leistungen.block3} items={t.leistungen.block3Items} img={sanierungImg} />
+      <Block id="sanierung" num="03" title={t.leistungen.block3} items={t.leistungen.block3Items} img={sanierungImg} />
 
       <section className="container-page py-24 md:py-36 text-center border-t border-border">
         <Reveal>
@@ -58,9 +58,9 @@ function LeistungenPage() {
   );
 }
 
-function Block({ num, title, items, img, reverse, children }: { num: string; title: string; items: readonly string[]; img: string; reverse?: boolean; children?: React.ReactNode }) {
+function Block({ id, num, title, items, img, reverse, children }: { id?: string; num: string; title: string; items: readonly string[]; img: string; reverse?: boolean; children?: React.ReactNode }) {
   return (
-    <section className="container-page py-20 md:py-32 border-b border-border">
+    <section id={id} className="container-page py-20 md:py-32 border-b border-border scroll-mt-24">
       <div className={`grid md:grid-cols-12 gap-10 items-start ${reverse ? "md:[&>div:first-child]:order-2" : ""}`}>
         <Reveal className="md:col-span-6">
           <div className="aspect-[4/5] overflow-hidden">
