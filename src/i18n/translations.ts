@@ -361,6 +361,6 @@ export const translations = {
       decline: "Decline",
     },
   },
-} as const;
+};
 
-export type Dict = typeof translations["de"];
+export type Dict = (typeof translations)["de"];
