@@ -4,6 +4,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { Reveal } from "@/components/site/Reveal";
 import { CTAButton } from "@/components/site/CTAButton";
 import { ContactForm } from "@/components/site/ContactForm";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { useI18n } from "@/i18n/I18nProvider";
 import heroImg from "@/assets/project-commercial.jpg";
 
