@@ -30,7 +30,7 @@ export function WhatsAppButton({
         rel="noopener noreferrer"
         aria-label={label}
         className={cn(
-          "hidden md:inline-flex items-center justify-center h-10 w-10 rounded-full border border-border text-foreground/80 hover:text-foreground hover:border-foreground hover:bg-[#25D366]/10 transition-colors",
+          "hidden md:inline-flex items-center justify-center h-10 w-10 rounded-full border border-neutral-400/60 text-neutral-500 hover:text-[#25D366] hover:border-[#25D366] hover:bg-[#25D366]/10 transition-colors",
           className,
         )}
       >
