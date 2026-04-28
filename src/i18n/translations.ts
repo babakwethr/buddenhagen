@@ -14,6 +14,11 @@ export const translations = {
       kontakt: "Kontakt",
       cta: "Anfrage Hausverwaltung",
     },
+    navGroups: {
+      kunden: "Für Kunden",
+      ueberUns: "Über uns",
+      whatsapp: "WhatsApp Chat",
+    },
     common: {
       learnMore: "Mehr erfahren",
       requestNow: "Jetzt Anfrage stellen",
@@ -193,6 +198,11 @@ export const translations = {
       karriere: "Careers",
       kontakt: "Contact",
       cta: "Property Manager Inquiry",
+    },
+    navGroups: {
+      kunden: "For Customers",
+      ueberUns: "About",
+      whatsapp: "WhatsApp Chat",
     },
     common: {
       learnMore: "Learn more",

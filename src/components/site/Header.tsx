@@ -1,13 +1,16 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 import { useI18n } from "@/i18n/I18nProvider";
 import { cn } from "@/lib/utils";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 
 export function Header() {
   const { t, locale, setLocale } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -19,9 +22,51 @@ export function Header() {
 
   useEffect(() => {
     setOpen(false);
+    setOpenMenu(null);
   }, [location.pathname]);
 
-  const links = [
+  useEffect(() => {
+    function onClick(e: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setOpenMenu(null);
+      }
+    }
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
+  }, []);
+
+  type NavItem =
+    | { kind: "link"; to: string; label: string }
+    | { kind: "group"; id: string; label: string; items: { to: string; label: string }[] };
+
+  const nav: NavItem[] = [
+    { kind: "link", to: "/", label: t.nav.start },
+    { kind: "link", to: "/leistungen", label: t.nav.leistungen },
+    { kind: "link", to: "/projekte", label: t.nav.projekte },
+    {
+      kind: "group",
+      id: "kunden",
+      label: t.navGroups.kunden,
+      items: [
+        { to: "/privatkunden", label: t.nav.privat },
+        { to: "/unternehmen-kunden", label: t.nav.unternehmen },
+      ],
+    },
+    {
+      kind: "group",
+      id: "ueber",
+      label: t.navGroups.ueberUns,
+      items: [
+        { to: "/unternehmen", label: t.nav.ueber },
+        { to: "/wissenswertes", label: t.nav.wissen },
+        { to: "/karriere", label: t.nav.karriere },
+      ],
+    },
+    { kind: "link", to: "/kontakt", label: t.nav.kontakt },
+  ];
+
+  // Flat list for the mobile menu
+  const mobileLinks = [
     { to: "/", label: t.nav.start },
     { to: "/leistungen", label: t.nav.leistungen },
     { to: "/projekte", label: t.nav.projekte },
@@ -44,27 +89,64 @@ export function Header() {
         )}
       >
         <div className="container-page flex h-16 md:h-20 items-center justify-between gap-6">
-          <Link to="/" className="flex items-center gap-2 group" aria-label="Buddenhagen">
+          <Link to="/" className="flex items-center gap-2.5 group" aria-label="Buddenhagen">
             <div className="h-8 w-8 bg-foreground text-background grid place-items-center font-display font-bold text-sm">B</div>
             <span className="font-display font-semibold tracking-tight text-lg">Buddenhagen</span>
-            <span className="hidden md:inline text-xs text-muted-foreground ml-2">est. 1926</span>
           </Link>
 
-          <nav className="hidden xl:flex items-center gap-7 text-sm">
-            {links.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                className="text-foreground/75 hover:text-foreground transition-colors"
-                activeProps={{ className: "text-foreground font-medium" }}
-                activeOptions={{ exact: l.to === "/" }}
-              >
-                {l.label}
-              </Link>
-            ))}
+          <nav ref={menuRef} className="hidden lg:flex items-center gap-6 text-sm">
+            {nav.map((item) => {
+              if (item.kind === "link") {
+                return (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    className="text-foreground/75 hover:text-foreground transition-colors"
+                    activeProps={{ className: "text-foreground font-medium" }}
+                    activeOptions={{ exact: item.to === "/" }}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
+              const isOpen = openMenu === item.id;
+              return (
+                <div key={item.id} className="relative">
+                  <button
+                    type="button"
+                    onClick={() => setOpenMenu(isOpen ? null : item.id)}
+                    className={cn(
+                      "inline-flex items-center gap-1 text-foreground/75 hover:text-foreground transition-colors",
+                      isOpen && "text-foreground",
+                    )}
+                    aria-expanded={isOpen}
+                    aria-haspopup="true"
+                  >
+                    {item.label}
+                    <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", isOpen && "rotate-180")} />
+                  </button>
+                  {isOpen && (
+                    <div className="absolute left-0 top-full mt-3 min-w-[240px] bg-background border border-border shadow-lg animate-fade-in py-2">
+                      {item.items.map((sub) => (
+                        <Link
+                          key={sub.to}
+                          to={sub.to}
+                          className="block px-4 py-2.5 text-sm text-foreground/80 hover:bg-muted hover:text-foreground transition-colors"
+                          activeProps={{ className: "text-accent font-medium" }}
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-3">
+            <WhatsAppButton variant="header" />
+
             <div className="hidden sm:flex items-center text-xs font-display tracking-wider">
               <button
                 onClick={() => setLocale("de")}
@@ -81,13 +163,16 @@ export function Header() {
 
             <Link
               to="/hausverwaltung-elektriker-hamburg"
-              className="hidden md:inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2.5 text-xs font-display font-medium tracking-wide uppercase hover:bg-[var(--copper-deep)] transition-colors"
+              className="hidden md:inline-flex items-center gap-2 group bg-foreground text-background pl-4 pr-3 py-2.5 text-xs font-display font-medium tracking-wider uppercase hover:bg-accent transition-colors"
             >
-              {t.nav.cta}
+              <span>{t.nav.cta}</span>
+              <span className="inline-flex items-center justify-center h-5 w-5 bg-accent text-accent-foreground transition-transform group-hover:translate-x-0.5 group-hover:bg-background group-hover:text-foreground">
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </span>
             </Link>
 
             <button
-              className="xl:hidden p-2 -mr-2"
+              className="lg:hidden p-2 -mr-2"
               onClick={() => setOpen((v) => !v)}
               aria-label="Menu"
             >
@@ -98,9 +183,9 @@ export function Header() {
       </header>
 
       {open && (
-        <div className="fixed inset-0 z-40 pt-16 md:pt-20 bg-background animate-fade-in xl:hidden">
+        <div className="fixed inset-0 z-40 pt-16 md:pt-20 bg-background animate-fade-in lg:hidden">
           <div className="container-page py-8 flex flex-col gap-1 overflow-y-auto h-full">
-            {links.map((l) => (
+            {mobileLinks.map((l) => (
               <Link
                 key={l.to}
                 to={l.to}
@@ -113,9 +198,9 @@ export function Header() {
             ))}
             <Link
               to="/hausverwaltung-elektriker-hamburg"
-              className="mt-6 inline-flex items-center justify-center bg-accent text-accent-foreground px-5 py-3.5 font-display uppercase text-sm tracking-wider"
+              className="mt-6 inline-flex items-center justify-center gap-2 bg-foreground text-background px-5 py-3.5 font-display uppercase text-sm tracking-wider"
             >
-              {t.nav.cta}
+              {t.nav.cta} <ArrowUpRight className="h-4 w-4" />
             </Link>
             <div className="mt-6 flex items-center gap-3 text-sm">
               <button onClick={() => setLocale("de")} className={cn("px-3 py-1.5 border", locale === "de" ? "border-foreground" : "border-border text-muted-foreground")}>Deutsch</button>
