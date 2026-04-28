@@ -9,8 +9,93 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WissenswertesRouteImport } from './routes/wissenswertes'
+import { Route as UnternehmenKundenRouteImport } from './routes/unternehmen-kunden'
+import { Route as UnternehmenRouteImport } from './routes/unternehmen'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as ProjekteRouteImport } from './routes/projekte'
+import { Route as PrivatkundenRouteImport } from './routes/privatkunden'
+import { Route as LeistungenRouteImport } from './routes/leistungen'
+import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as KarriereRouteImport } from './routes/karriere'
+import { Route as ImpressumRouteImport } from './routes/impressum'
+import { Route as HausverwaltungElektrikerHamburgRouteImport } from './routes/hausverwaltung-elektriker-hamburg'
+import { Route as DatenschutzRouteImport } from './routes/datenschutz'
+import { Route as AgbRouteImport } from './routes/agb'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WissenswertesRoute = WissenswertesRouteImport.update({
+  id: '/wissenswertes',
+  path: '/wissenswertes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UnternehmenKundenRoute = UnternehmenKundenRouteImport.update({
+  id: '/unternehmen-kunden',
+  path: '/unternehmen-kunden',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UnternehmenRoute = UnternehmenRouteImport.update({
+  id: '/unternehmen',
+  path: '/unternehmen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjekteRoute = ProjekteRouteImport.update({
+  id: '/projekte',
+  path: '/projekte',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivatkundenRoute = PrivatkundenRouteImport.update({
+  id: '/privatkunden',
+  path: '/privatkunden',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeistungenRoute = LeistungenRouteImport.update({
+  id: '/leistungen',
+  path: '/leistungen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KarriereRoute = KarriereRouteImport.update({
+  id: '/karriere',
+  path: '/karriere',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpressumRoute = ImpressumRouteImport.update({
+  id: '/impressum',
+  path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HausverwaltungElektrikerHamburgRoute =
+  HausverwaltungElektrikerHamburgRouteImport.update({
+    id: '/hausverwaltung-elektriker-hamburg',
+    path: '/hausverwaltung-elektriker-hamburg',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DatenschutzRoute = DatenschutzRouteImport.update({
+  id: '/datenschutz',
+  path: '/datenschutz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgbRoute = AgbRouteImport.update({
+  id: '/agb',
+  path: '/agb',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +104,228 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agb': typeof AgbRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/hausverwaltung-elektriker-hamburg': typeof HausverwaltungElektrikerHamburgRoute
+  '/impressum': typeof ImpressumRoute
+  '/karriere': typeof KarriereRoute
+  '/kontakt': typeof KontaktRoute
+  '/leistungen': typeof LeistungenRoute
+  '/privatkunden': typeof PrivatkundenRoute
+  '/projekte': typeof ProjekteRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/unternehmen': typeof UnternehmenRoute
+  '/unternehmen-kunden': typeof UnternehmenKundenRoute
+  '/wissenswertes': typeof WissenswertesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agb': typeof AgbRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/hausverwaltung-elektriker-hamburg': typeof HausverwaltungElektrikerHamburgRoute
+  '/impressum': typeof ImpressumRoute
+  '/karriere': typeof KarriereRoute
+  '/kontakt': typeof KontaktRoute
+  '/leistungen': typeof LeistungenRoute
+  '/privatkunden': typeof PrivatkundenRoute
+  '/projekte': typeof ProjekteRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/unternehmen': typeof UnternehmenRoute
+  '/unternehmen-kunden': typeof UnternehmenKundenRoute
+  '/wissenswertes': typeof WissenswertesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agb': typeof AgbRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/hausverwaltung-elektriker-hamburg': typeof HausverwaltungElektrikerHamburgRoute
+  '/impressum': typeof ImpressumRoute
+  '/karriere': typeof KarriereRoute
+  '/kontakt': typeof KontaktRoute
+  '/leistungen': typeof LeistungenRoute
+  '/privatkunden': typeof PrivatkundenRoute
+  '/projekte': typeof ProjekteRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/unternehmen': typeof UnternehmenRoute
+  '/unternehmen-kunden': typeof UnternehmenKundenRoute
+  '/wissenswertes': typeof WissenswertesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/agb'
+    | '/datenschutz'
+    | '/hausverwaltung-elektriker-hamburg'
+    | '/impressum'
+    | '/karriere'
+    | '/kontakt'
+    | '/leistungen'
+    | '/privatkunden'
+    | '/projekte'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/unternehmen'
+    | '/unternehmen-kunden'
+    | '/wissenswertes'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/agb'
+    | '/datenschutz'
+    | '/hausverwaltung-elektriker-hamburg'
+    | '/impressum'
+    | '/karriere'
+    | '/kontakt'
+    | '/leistungen'
+    | '/privatkunden'
+    | '/projekte'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/unternehmen'
+    | '/unternehmen-kunden'
+    | '/wissenswertes'
+  id:
+    | '__root__'
+    | '/'
+    | '/agb'
+    | '/datenschutz'
+    | '/hausverwaltung-elektriker-hamburg'
+    | '/impressum'
+    | '/karriere'
+    | '/kontakt'
+    | '/leistungen'
+    | '/privatkunden'
+    | '/projekte'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/unternehmen'
+    | '/unternehmen-kunden'
+    | '/wissenswertes'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgbRoute: typeof AgbRoute
+  DatenschutzRoute: typeof DatenschutzRoute
+  HausverwaltungElektrikerHamburgRoute: typeof HausverwaltungElektrikerHamburgRoute
+  ImpressumRoute: typeof ImpressumRoute
+  KarriereRoute: typeof KarriereRoute
+  KontaktRoute: typeof KontaktRoute
+  LeistungenRoute: typeof LeistungenRoute
+  PrivatkundenRoute: typeof PrivatkundenRoute
+  ProjekteRoute: typeof ProjekteRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  UnternehmenRoute: typeof UnternehmenRoute
+  UnternehmenKundenRoute: typeof UnternehmenKundenRoute
+  WissenswertesRoute: typeof WissenswertesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/wissenswertes': {
+      id: '/wissenswertes'
+      path: '/wissenswertes'
+      fullPath: '/wissenswertes'
+      preLoaderRoute: typeof WissenswertesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/unternehmen-kunden': {
+      id: '/unternehmen-kunden'
+      path: '/unternehmen-kunden'
+      fullPath: '/unternehmen-kunden'
+      preLoaderRoute: typeof UnternehmenKundenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/unternehmen': {
+      id: '/unternehmen'
+      path: '/unternehmen'
+      fullPath: '/unternehmen'
+      preLoaderRoute: typeof UnternehmenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projekte': {
+      id: '/projekte'
+      path: '/projekte'
+      fullPath: '/projekte'
+      preLoaderRoute: typeof ProjekteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privatkunden': {
+      id: '/privatkunden'
+      path: '/privatkunden'
+      fullPath: '/privatkunden'
+      preLoaderRoute: typeof PrivatkundenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leistungen': {
+      id: '/leistungen'
+      path: '/leistungen'
+      fullPath: '/leistungen'
+      preLoaderRoute: typeof LeistungenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/karriere': {
+      id: '/karriere'
+      path: '/karriere'
+      fullPath: '/karriere'
+      preLoaderRoute: typeof KarriereRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impressum': {
+      id: '/impressum'
+      path: '/impressum'
+      fullPath: '/impressum'
+      preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hausverwaltung-elektriker-hamburg': {
+      id: '/hausverwaltung-elektriker-hamburg'
+      path: '/hausverwaltung-elektriker-hamburg'
+      fullPath: '/hausverwaltung-elektriker-hamburg'
+      preLoaderRoute: typeof HausverwaltungElektrikerHamburgRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/datenschutz': {
+      id: '/datenschutz'
+      path: '/datenschutz'
+      fullPath: '/datenschutz'
+      preLoaderRoute: typeof DatenschutzRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agb': {
+      id: '/agb'
+      path: '/agb'
+      fullPath: '/agb'
+      preLoaderRoute: typeof AgbRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,7 +338,30 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgbRoute: AgbRoute,
+  DatenschutzRoute: DatenschutzRoute,
+  HausverwaltungElektrikerHamburgRoute: HausverwaltungElektrikerHamburgRoute,
+  ImpressumRoute: ImpressumRoute,
+  KarriereRoute: KarriereRoute,
+  KontaktRoute: KontaktRoute,
+  LeistungenRoute: LeistungenRoute,
+  PrivatkundenRoute: PrivatkundenRoute,
+  ProjekteRoute: ProjekteRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  UnternehmenRoute: UnternehmenRoute,
+  UnternehmenKundenRoute: UnternehmenKundenRoute,
+  WissenswertesRoute: WissenswertesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
