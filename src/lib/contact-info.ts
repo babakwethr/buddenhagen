@@ -1,6 +1,6 @@
 // Central contact info — change WhatsApp number here.
 // Format: digits only, with country code, no spaces or "+".
-export const WHATSAPP_NUMBER = "491701234567"; // TODO: replace with real number
+export const WHATSAPP_NUMBER = "4916090537057";
 export const WHATSAPP_DEFAULT_MESSAGE_DE =
   "Hallo Buddenhagen, ich habe eine Frage…";
 export const WHATSAPP_DEFAULT_MESSAGE_EN =
