@@ -5,7 +5,6 @@ import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { CTAButton } from "@/components/site/CTAButton";
 import { ContactForm } from "@/components/site/ContactForm";
-import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { useI18n } from "@/i18n/I18nProvider";
 
 export const Route = createFileRoute("/kontakt")({
@@ -83,7 +82,6 @@ function KontaktPage() {
         </div>
       </section>
 
-      <WhatsAppButton variant="floating" />
     </SiteLayout>
   );
 }
