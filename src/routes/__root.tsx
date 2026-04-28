@@ -98,4 +98,3 @@ function RootComponent() {
     </I18nProvider>
   );
 }
-}
