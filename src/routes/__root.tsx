@@ -1,6 +1,7 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { I18nProvider } from "@/i18n/I18nProvider";
 
 function NotFoundComponent() {
   return (
@@ -46,6 +47,30 @@ export const Route = createRootRoute({
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Buddenhagen",
+          description: "Elektroinstallation, erneuerbare Energien und Sanierung in Hamburg seit 1926.",
+          foundingDate: "1926",
+          telephone: "+49 40 1234 5678",
+          email: "info@buddenhagen.com",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Musterstraße 1",
+            postalCode: "20095",
+            addressLocality: "Hamburg",
+            addressCountry: "DE",
+          },
+          geo: { "@type": "GeoCoordinates", latitude: 53.5511, longitude: 9.9937 },
+          openingHours: "Mo-Fr 07:30-17:00",
+          areaServed: "Hamburg",
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -67,5 +92,10 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  return <Outlet />;
+  return (
+    <I18nProvider>
+      <Outlet />
+    </I18nProvider>
+  );
+}
 }
