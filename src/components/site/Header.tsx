@@ -109,7 +109,7 @@ export function Header() {
                       "transition-colors",
                       scrolled
                         ? "text-foreground/75 hover:text-foreground"
-                        : "text-neutral-600 hover:text-foreground",
+                        : "text-neutral-500 hover:text-foreground",
                     )}
                     activeProps={{ className: "font-medium" }}
                     activeOptions={{ exact: item.to === "/" }}
@@ -128,7 +128,7 @@ export function Header() {
                       "inline-flex items-center gap-1 transition-colors",
                       scrolled
                         ? "text-foreground/75 hover:text-foreground"
-                        : "text-neutral-600 hover:text-foreground",
+                        : "text-neutral-500 hover:text-foreground",
                       isOpen && "text-foreground",
                     )}
                     aria-expanded={isOpen}
@@ -165,7 +165,7 @@ export function Header() {
                 className={cn(
                   "px-2 py-1 transition",
                   locale === "de"
-                    ? scrolled ? "text-foreground font-semibold" : "text-neutral-700 font-semibold"
+                    ? scrolled ? "text-foreground font-semibold" : "text-neutral-500 font-semibold"
                     : scrolled ? "text-muted-foreground hover:text-foreground" : "text-neutral-500 hover:text-foreground",
                 )}
                 aria-label="Deutsch"
