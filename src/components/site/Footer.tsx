@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/I18nProvider";
+import logoUrl from "@/assets/logo.png";
 
 export function Footer() {
   const { t } = useI18n();
@@ -7,10 +8,10 @@ export function Footer() {
     <footer className="bg-foreground text-background mt-32">
       <div className="container-page py-20 grid gap-12 md:grid-cols-4">
         <div>
-          <div className="flex items-center gap-2">
-            <div className="h-9 w-9 bg-background text-foreground grid place-items-center font-display font-bold">B</div>
+          <Link to="/" className="flex items-center gap-3">
+            <img src={logoUrl} alt="Buddenhagen" className="h-10 w-auto bg-background p-1.5" />
             <span className="font-display font-semibold text-xl">Buddenhagen</span>
-          </div>
+          </Link>
           <p className="mt-4 text-sm text-background/70 max-w-xs">{t.common.tagline}</p>
           <p className="mt-2 text-xs text-background/50">{t.common.since}</p>
         </div>
