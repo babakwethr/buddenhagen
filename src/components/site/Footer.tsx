@@ -39,8 +39,8 @@ export function Footer() {
           <h4 className="eyebrow !text-background/60">{t.footer.contact}</h4>
           <ul className="mt-5 space-y-3 text-sm text-background/80">
             <li><a href="mailto:info@buddenhagen.com" className="hover:text-accent">info@buddenhagen.com</a></li>
-            <li><a href="tel:+494012345678" className="hover:text-accent">+49 40 1234 5678</a></li>
-            <li>Musterstraße 1<br />20095 Hamburg</li>
+            <li><a href="tel:+49404710330" className="hover:text-accent">+49 40 4710330</a></li>
+            <li>Langenhorner Chaussee 155<br />22415 Hamburg</li>
           </ul>
         </div>
       </div>
