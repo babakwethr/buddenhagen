@@ -9,7 +9,7 @@ export function Footer() {
       <div className="container-page py-20 grid gap-12 md:grid-cols-4">
         <div>
           <Link to="/" className="inline-block">
-            <img src={logoUrl} alt="Buddenhagen & Söhne — Established 1926" className="h-14 w-auto" />
+            <img src={logoUrl} alt="Buddenhagen & Söhne — Established 1926" className="h-8 w-auto" />
           </Link>
           <p className="mt-4 text-sm text-background/70 max-w-xs">{t.common.tagline}</p>
           <p className="mt-2 text-xs text-background/50">{t.common.since}</p>
