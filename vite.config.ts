@@ -6,4 +6,14 @@
 // You can pass additional config via defineConfig({ vite: { ... } }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-export default defineConfig();
+// Disable the Cloudflare worker target and switch TanStack Start to SPA mode so the
+// build emits a static client bundle deployable on Vercel (or any static host).
+export default defineConfig({
+  cloudflare: false,
+  tanstackStart: {
+    spa: {
+      enabled: true,
+      prerender: { outputPath: "/index" },
+    },
+  },
+});
