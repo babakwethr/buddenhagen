@@ -59,7 +59,7 @@ function KontaktPage() {
               {t.kontakt.addressLines.map((l) => <div key={l}>{l}</div>)}
             </InfoRow>
             <InfoRow icon={Phone} label={t.kontakt.phone}>
-              <a href="tel:+494012345678" className="hover:text-accent">+49 40 1234 5678</a>
+              <a href="tel:+49404710330" className="hover:text-accent">+49 40 4710330</a>
             </InfoRow>
             <InfoRow icon={Mail} label="Email">
               <a href="mailto:info@buddenhagen.com" className="hover:text-accent">info@buddenhagen.com</a>
