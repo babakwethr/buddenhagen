@@ -194,7 +194,7 @@ export function Header() {
             </Link>
 
             <button
-              className="lg:hidden p-2 -mr-2"
+              className="lg:hidden p-2 -mr-2 text-foreground"
               onClick={() => setOpen((v) => !v)}
               aria-label="Menu"
             >
