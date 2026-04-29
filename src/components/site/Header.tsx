@@ -194,7 +194,10 @@ export function Header() {
             </Link>
 
             <button
-              className="lg:hidden p-2 -mr-2 text-foreground"
+              className={cn(
+                "lg:hidden p-2 -mr-2 transition-colors",
+                scrolled || open ? "text-foreground" : "text-white drop-shadow-md",
+              )}
               onClick={() => setOpen((v) => !v)}
               aria-label="Menu"
             >
