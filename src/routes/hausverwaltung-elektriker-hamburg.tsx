@@ -56,7 +56,7 @@ function HVPage() {
           <p className="mt-5 text-muted-foreground text-lg leading-relaxed">{t.hv.formSub}</p>
           <div className="mt-10 space-y-3 text-sm text-muted-foreground">
             <p>info@buddenhagen.com</p>
-            <p>+49 40 1234 5678</p>
+            <p>+49 40 4710330</p>
           </div>
         </Reveal>
         <Reveal className="md:col-span-7" delay={0.1}>
