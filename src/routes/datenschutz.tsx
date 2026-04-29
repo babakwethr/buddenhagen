@@ -9,7 +9,7 @@ export const Route = createFileRoute("/datenschutz")({
       <PageHero title="Datenschutz" />
       <section className="container-page py-16 text-muted-foreground space-y-4 max-w-2xl">
         <p>Wir nehmen den Schutz Ihrer Daten sehr ernst. Diese Seite enthält eine Platzhalter-Datenschutzerklärung. Eine vollständige Fassung wird vor Veröffentlichung des Webangebots ergänzt.</p>
-        <p>Verantwortlich: Buddenhagen GmbH, Musterstraße 1, 20095 Hamburg.</p>
+        <p>Verantwortlich: Buddenhagen & Söhne GmbH & Co. KG, Langenhorner Chaussee 155, 22415 Hamburg.</p>
       </section>
     </SiteLayout>
   ),
