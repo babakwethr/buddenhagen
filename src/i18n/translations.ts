@@ -168,7 +168,7 @@ export const translations = {
       jobsSub: "Direkt an unsere Personalabteilung.",
       jobsBtn: "Bewerbung schreiben",
       address: "Adresse",
-      addressLines: ["Buddenhagen GmbH", "Musterstraße 1", "20095 Hamburg"],
+      addressLines: ["Buddenhagen & Söhne GmbH & Co. KG", "Langenhorner Chaussee 155", "22415 Hamburg"],
       phone: "Telefon",
       hours: "Öffnungszeiten",
       hoursLines: ["Mo–Fr 07:30–17:00", "Sa & So geschlossen"],
