@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useI18n } from "@/i18n/I18nProvider";
-import { submitContact } from "@/server/contact.functions";
 
 type Kind = "general" | "hausverwaltung";
+
+const CONTACT_EMAIL = "info@buddenhagen.com";
 
 export function ContactForm({ kind = "general" }: { kind?: Kind }) {
   const { t } = useI18n();
@@ -35,17 +36,24 @@ export function ContactForm({ kind = "general" }: { kind?: Kind }) {
       return;
     }
 
-    try {
-      const res = await submitContact({ data });
-      if (res.ok) {
-        setStatus("success");
-        e.currentTarget.reset();
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
+    // honeypot
+    if (data.website) { setStatus("success"); return; }
+
+    const subject = kind === "hausverwaltung"
+      ? `[Hausverwaltung] Anfrage von ${data.name}`
+      : `[Kontakt] Anfrage von ${data.name}`;
+    const body = [
+      `Name: ${data.name}`,
+      `E-Mail: ${data.email}`,
+      data.phone ? `Telefon: ${data.phone}` : null,
+      data.company ? `Unternehmen: ${data.company}` : null,
+      ``,
+      data.message,
+    ].filter((l) => l !== null).join("\n");
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setStatus("success");
+    (e.target as HTMLFormElement).reset();
   }
 
   if (status === "success") {
