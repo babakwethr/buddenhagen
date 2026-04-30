@@ -75,7 +75,7 @@ function KontaktPage() {
         <div className="aspect-[16/7] w-full overflow-hidden border border-border">
           <iframe
             title="Hamburg Karte"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=9.9737%2C53.5411%2C10.0137%2C53.5611&layer=mapnik"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=10.0004%2C53.6376%2C10.0245%2C53.6536&layer=mapnik&marker=53.6456%2C10.0125"
             className="w-full h-full grayscale"
             loading="lazy"
           />

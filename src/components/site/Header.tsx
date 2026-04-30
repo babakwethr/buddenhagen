@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 import { useI18n } from "@/i18n/I18nProvider";
 import { cn } from "@/lib/utils";
-import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import logoUrl from "@/assets/logo.png";
 
 export function Header() {
@@ -157,7 +156,6 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <WhatsAppButton variant="header" />
 
             <div className="hidden sm:flex items-center text-xs font-display tracking-wider">
               <button

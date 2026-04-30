@@ -171,7 +171,7 @@ export const translations = {
       addressLines: ["Buddenhagen & Söhne GmbH & Co. KG", "Langenhorner Chaussee 155", "22415 Hamburg"],
       phone: "Telefon",
       hours: "Öffnungszeiten",
-      hoursLines: ["Mo–Fr 07:30–17:00", "Sa & So geschlossen"],
+      hoursLines: ["Mo–Do 08:00–16:00", "Fr 08:00–13:00", "Sa & So geschlossen"],
     },
     footer: {
       services: "Leistungen",
@@ -356,7 +356,7 @@ export const translations = {
       addressLines: ["Buddenhagen & Söhne GmbH & Co. KG", "Langenhorner Chaussee 155", "22415 Hamburg"],
       phone: "Phone",
       hours: "Opening hours",
-      hoursLines: ["Mon–Fri 07:30–17:00", "Sat & Sun closed"],
+      hoursLines: ["Mon–Thu 08:00–16:00", "Fri 08:00–13:00", "Sat & Sun closed"],
     },
     footer: {
       services: "Services",
