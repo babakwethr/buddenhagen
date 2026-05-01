@@ -38,7 +38,7 @@ function LeistungenPage() {
               <p className="eyebrow">{t.leistungen.windTitle}</p>
               <p className="mt-3 text-lg leading-relaxed">{t.leistungen.windBody}</p>
               <div className="mt-5">
-                <CTAExternal href="https://xolution.example" variant="outline">{t.leistungen.windCta}</CTAExternal>
+                <CTAExternal href="https://xolution.energy/" variant="outline">{t.leistungen.windCta}</CTAExternal>
               </div>
             </div>
           </div>
