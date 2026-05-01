@@ -177,7 +177,7 @@ export const translations = {
       services: "Leistungen",
       company: "Unternehmen",
       contact: "Kontakt",
-      legal: ["Impressum", "Datenschutz", "AGB"],
+      legal: ["Impressum", "Datenschutz", "AGB", "Barrierefreiheit"],
       copyright: "© Buddenhagen 1926–2026",
     },
     cookie: {
@@ -362,7 +362,7 @@ export const translations = {
       services: "Services",
       company: "Company",
       contact: "Contact",
-      legal: ["Imprint", "Privacy", "Terms"],
+      legal: ["Imprint", "Privacy", "Terms", "Accessibility"],
       copyright: "© Buddenhagen 1926–2026",
     },
     cookie: {

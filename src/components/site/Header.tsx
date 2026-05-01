@@ -197,7 +197,9 @@ export function Header() {
                 scrolled || open ? "text-foreground" : "text-white drop-shadow-md",
               )}
               onClick={() => setOpen((v) => !v)}
-              aria-label="Menu"
+              aria-label={open ? "Menü schließen" : "Menü öffnen"}
+              aria-expanded={open}
+              aria-controls="mobile-menu"
             >
               {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -206,7 +208,7 @@ export function Header() {
       </header>
 
       {open && (
-        <div className="fixed inset-0 z-40 pt-16 md:pt-20 bg-background animate-fade-in lg:hidden">
+        <div id="mobile-menu" className="fixed inset-0 z-40 pt-16 md:pt-20 bg-background animate-fade-in lg:hidden">
           <div className="container-page py-8 flex flex-col gap-1 overflow-y-auto h-full">
             {mobileLinks.map((l) => (
               <Link
@@ -226,8 +228,8 @@ export function Header() {
               {t.nav.cta} <ArrowUpRight className="h-4 w-4" />
             </Link>
             <div className="mt-6 flex items-center gap-3 text-sm">
-              <button onClick={() => setLocale("de")} className={cn("px-3 py-1.5 border", locale === "de" ? "border-foreground" : "border-border text-muted-foreground")}>Deutsch</button>
-              <button onClick={() => setLocale("en")} className={cn("px-3 py-1.5 border", locale === "en" ? "border-foreground" : "border-border text-muted-foreground")}>English</button>
+              <button onClick={() => setLocale("de")} aria-label="Deutsch" className={cn("px-3 py-1.5 border", locale === "de" ? "border-foreground" : "border-border text-muted-foreground")}>Deutsch</button>
+              <button onClick={() => setLocale("en")} aria-label="English" className={cn("px-3 py-1.5 border", locale === "en" ? "border-foreground" : "border-border text-muted-foreground")}>English</button>
             </div>
           </div>
         </div>

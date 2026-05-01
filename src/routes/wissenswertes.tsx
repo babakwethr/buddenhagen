@@ -69,7 +69,9 @@ function NewsletterCard() {
             onSubmit={(e) => { e.preventDefault(); if (email.includes("@")) setDone(true); }}
             className="flex flex-col sm:flex-row gap-3"
           >
+            <label htmlFor="newsletter-email" className="sr-only">E-Mail-Adresse</label>
             <input
+              id="newsletter-email"
               type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
               placeholder="email@example.com"
               className="flex-1 bg-background/10 border border-background/20 px-4 py-3.5 text-sm focus:outline-none focus:border-accent"

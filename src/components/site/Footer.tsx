@@ -109,6 +109,7 @@ export function Footer() {
             <Link to="/impressum" className="hover:text-accent">{t.footer.legal[0]}</Link>
             <Link to="/datenschutz" className="hover:text-accent">{t.footer.legal[1]}</Link>
             <Link to="/agb" className="hover:text-accent">{t.footer.legal[2]}</Link>
+            <Link to="/barrierefreiheit" className="hover:text-accent">{t.footer.legal[3]}</Link>
           </div>
         </div>
       </div>
